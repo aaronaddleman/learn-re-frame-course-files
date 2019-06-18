@@ -2,6 +2,7 @@
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
             [app.db]
+            [app.router :as router]
             ;; --auth--
             [app.auth.views.profile :refer [profile]]
             [app.auth.views.sign-up :refer [sign-up]]
@@ -52,5 +53,6 @@
 
 (defn ^:export init
   []
+  (router/start!)
   (rf/dispatch-sync [:initialize-db])
   (start))

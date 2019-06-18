@@ -1,5 +1,5 @@
 (ns app.auth.events
-  (:require [re-frame.core :refer [reg-event-fx reg-event-db after]]))
+  (:require [re-frame.core :refer [reg-event-fx reg-event-db after reg-cofx]]))
 
 (def cheffy-user-key "cheffy-user")
 
@@ -13,6 +13,11 @@
 
 (def set-user-interceptors [(after set-user-ls!)])
 (def remove-user-interceptors [(after remove-user-ls!)])
+
+(reg-cofx
+ :local-store-user
+ (fn [cofx _]
+   (assoc cofx :local-store-user (.getItem js/localStorage cheffy-user-key))))
 
 (reg-event-fx
  :sign-up
