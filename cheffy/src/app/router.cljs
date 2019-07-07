@@ -17,7 +17,7 @@
 
 (defn start!
   []
-  (let [dispatch #(js/console.log %)
+  (let [dispatch #(rf/dispatch [:route-changed %])
         match #(bidi/match-route routes %)]
   (pushy/start! (pushy/pushy dispatch match))))
 
