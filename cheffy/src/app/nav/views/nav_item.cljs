@@ -11,4 +11,3 @@
            :pb 10
            :border-bottom (when (= active-nav id) "2px solid #102A43")}
    name])
-

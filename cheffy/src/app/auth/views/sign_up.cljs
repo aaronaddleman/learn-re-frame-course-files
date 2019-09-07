@@ -3,7 +3,7 @@
             [re-frame.core :as rf]
             [app.components.page-nav :refer [page-nav]]
             [app.components.form-group :refer [form-group]]
-            ["@smooth-ui/core-sc" :refer [Row Col FormGroup Label Input Button Box]]))
+            ["@smooth-ui/core-sc" :refer [Row Col FormGroup Label Input Box Button]]))
 
 (defn sign-up
   []
@@ -33,7 +33,7 @@
                  :justify-content "space-between"}
          [:> Box {:py 1
                   :pr 2}
-          [:a {:href "#login-up"
+          [:a {:href "#log-in"
                :on-click #(rf/dispatch [:set-active-nav :log-in])}
            "Already have an account? Log in!"]]
          [:> Box

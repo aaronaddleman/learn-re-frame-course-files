@@ -1,5 +1,6 @@
 (ns app.auth.events
-  (:require [re-frame.core :refer [reg-event-fx reg-event-db after reg-cofx]]))
+  (:require [re-frame.core :refer [reg-event-fx reg-event-db after reg-cofx]]
+            [cljs.reader :refer [read-string]]))
 
 (def cheffy-user-key "cheffy-user")
 
@@ -17,7 +18,9 @@
 (reg-cofx
  :local-store-user
  (fn [cofx _]
-   (assoc cofx :local-store-user (.getItem js/localStorage cheffy-user-key))))
+   (assoc cofx :local-store-user
+          (read-string
+           (.getItem js/localStorage cheffy-user-key)))))
 
 (reg-event-fx
  :sign-up
@@ -50,10 +53,9 @@
 
        correct-password?
        {:db (-> db
-            (assoc-in [:auth :uid] email)
-            (update-in [:errors] dissoc :email))
-        :dispatch [:set-active-nav :saved]}
-       ))))
+                (assoc-in [:auth :uid] email)
+                (update-in [:errors] dissoc :email))
+        :dispatch [:set-active-nav :saved]}))))
 
 (reg-event-fx
  :log-out
@@ -70,6 +72,7 @@
 
 (reg-event-fx
  :delete-account
+ remove-user-interceptors
  (fn [{:keys [db]} _]
    (let [uid (get-in db [:auth :uid])]
      {:db (-> db

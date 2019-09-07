@@ -3,7 +3,7 @@
             [re-frame.core :as rf]
             [app.components.page-nav :refer [page-nav]]
             [app.components.form-group :refer [form-group]]
-            ["@smooth-ui/core-sc" :refer [Row Col FormGroup Label Input Button Box]]))
+            ["@smooth-ui/core-sc" :refer [Row Col FormGroup Label Input Box Button]]))
 
 (defn log-in
   []

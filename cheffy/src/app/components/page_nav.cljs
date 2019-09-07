@@ -8,15 +8,15 @@
            :display "flex"
            :justify-content "space-between"}
    [:> Box
-    (when left)
-    [:> Button {:as "a"
-                :my 20
-                :varient "light"
-                :aria-label "Back"
-                :href left}
-     [:> ChevronLeft {:size 16}]]]
+    (when left
+      [:> Button {:as "a"
+                  :my 20
+                  :variant "light"
+                  :aria-label "Back"
+                  :href left}
+       [:> ChevronLeft {:size 16}]])]
    [:> Box
-    [:> Typography {:varient "h2"
+    [:> Typography {:variant "h2"
                     :py 20
                     :font-weight 700}
      center]]

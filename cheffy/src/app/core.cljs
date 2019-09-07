@@ -3,24 +3,24 @@
             [re-frame.core :as rf]
             [app.db]
             [app.router :as router]
-            ;; --auth--
+            ;; -- auth --
             [app.auth.views.profile :refer [profile]]
             [app.auth.views.sign-up :refer [sign-up]]
             [app.auth.views.log-in :refer [log-in]]
             [app.auth.events]
             [app.auth.subs]
-            ;; --become-a-chef
+            ;; -- become-a-chef --
             [app.become-a-chef.views.become-a-chef :refer [become-a-chef]]
-            ;; --inbox--
-            [app.inbox.view.inboxes :refer [inboxes]]
-            ;; --nav--
+            ;; -- inbox --
+            [app.inbox.views.inboxes :refer [inboxes]]
+            ;; -- nav --
             [app.nav.views.nav :refer [nav]]
             [app.nav.events]
             [app.nav.subs]
-            ;; --recipes --
+            ;; -- recipes --
             [app.recipes.views.recipes :refer [recipes]]
             [app.theme :refer [cheffy-theme]]
-            ["@smooth-ui/core-sc" :refer [Normalize ThemeProvider Grid Row Col Button]]))
+            ["@smooth-ui/core-sc" :refer [Normalize ThemeProvider Grid Row Col]]))
 
 (defn pages
   [page-name]
@@ -32,7 +32,6 @@
     :inboxes [inboxes]
     :recipes [recipes]
     [recipes]))
-
 
 (defn app
   []

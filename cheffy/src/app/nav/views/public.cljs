@@ -7,13 +7,13 @@
   []
   (let [active-nav @(rf/subscribe [:active-nav])
         nav-items [{:id :recipes
-                     :name "Recipes"
-                     :href "#recipes"
-                     :dispatch #(rf/dispatch [:set-active-nav :recipes])}
+                    :name "Recipes"
+                    :href "#recipes"
+                    :dispatch #(rf/dispatch [:set-active-nav :recipes])}
                    {:id :become-a-chef
-                     :name "Chef"
-                     :href "#become-a-chef"
-                     :dispatch #(rf/dispatch [:set-active-nav :become-a-chef])}
+                    :name "Chef"
+                    :href "#become-a-chef"
+                    :dispatch #(rf/dispatch [:set-active-nav :become-a-chef])}
                    {:id :sign-up
                     :name "Sign up"
                     :href "#sign-up"
