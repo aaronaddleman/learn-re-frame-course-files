@@ -36,7 +36,7 @@
                                                 :img "img/avatar.jpg"}
                                       :saved #{}
                                       :inboxes {}}))
-    :dispatch [:set-active-nav :saved]
+    :dispatch [:set-active-page :saved]
     :navigate-to {:path "/saved"}}))
 
 (reg-event-fx
@@ -56,7 +56,7 @@
        {:db (-> db
                 (assoc-in [:auth :uid] email)
                 (update-in [:errors] dissoc :email))
-        :dispatch [:set-active-nav :saved]
+        :dispatch [:set-active-page :saved]
         :navigate-to {:path "/saved"}}))))
 
 (reg-event-fx
@@ -64,7 +64,7 @@
  remove-user-interceptors
  (fn [{:keys [db]} _]
    {:db (assoc-in db [:auth :uid] nil)
-    :dispatch [:set-active-nav :recipes]
+    :dispatch [:set-active-page :recipes]
     :navigate-to {:path "/recipes"}}))
 
 (reg-event-db
@@ -81,5 +81,5 @@
      {:db (-> db
               (assoc-in [:auth :uid] nil)
               (update-in [:users] dissoc uid))
-      :dispatch [:set-active-nav :recipes]
+      :dispatch [:set-active-page :recipes]
       :navigate-to {:path "/recipes"}})))
